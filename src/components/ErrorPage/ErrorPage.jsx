@@ -5,7 +5,7 @@ const ErrorPage = () => {
     return (
         <div>
             <h1>Found Error !!!!!!!!</h1>
-            <Link to ="/">Back Home</Link>
+            <Link className="btn btn-primary mx-1 my-1" to ="/">Back Home</Link>
         </div>
     );
 };

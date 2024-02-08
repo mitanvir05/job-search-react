@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getStoredJobApplication } from "../Utility/LocalStorage";
 import { list } from "postcss";
+import AppliedJob from "../AppliedJob/AppliedJob";
 
 const AppliedJobs = () => {
     const [appliedJobs, setAppliedJobs] = useState([]);
@@ -10,12 +11,12 @@ const AppliedJobs = () => {
         if (filter === 'all') {
             setDisplayJobs(appliedJobs)
         }
-        else if(filter==='remote'){
-            const remoteJobs = appliedJobs.filter(job=>job.remote_or_onsite === 'Remote');
+        else if (filter === 'remote') {
+            const remoteJobs = appliedJobs.filter(job => job.remote_or_onsite === 'Remote');
             setDisplayJobs(remoteJobs)
         }
-        else if(filter==='onsite'){
-            const onsiteJobs = appliedJobs.filter(job=>job.remote_or_onsite === 'Onsite');
+        else if (filter === 'onsite') {
+            const onsiteJobs = appliedJobs.filter(job => job.remote_or_onsite === 'Onsite');
             setDisplayJobs(onsiteJobs)
         }
     }
@@ -42,21 +43,28 @@ const AppliedJobs = () => {
             <div className="dropdown">
                 <div tabIndex={0} role="button" className="btn m-1">Filter</div>
                 <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                    <li onClick={()=>handleJobsFilter('all')}><a>All</a></li>
-                    <li onClick={()=>handleJobsFilter('remote')}><a>Remote</a></li>
-                    <li onClick={()=>handleJobsFilter('onsite')}><a>On-Site</a></li>
+                    <li onClick={() => handleJobsFilter('all')}><a>All</a></li>
+                    <li onClick={() => handleJobsFilter('remote')}><a>Remote</a></li>
+                    <li onClick={() => handleJobsFilter('onsite')}><a>On-Site</a></li>
                 </ul>
             </div>
-            <ul>
-                {
-                    displayJobs.map(job => <li key={job.id}>
-                        <span>
-                            {job.job_title}
-                        </span>
-                        <span>{job.remote_or_onsite}</span>
-                    </li>)
-                }
-            </ul>
+            {
+                displayJobs.map(job=> <AppliedJob key={job.id} job={job} >
+                    
+                </AppliedJob>)
+            }
+            {/* <ul>
+                    {
+                        displayJobs.map(job => <li key={job.id}>
+                            <span>
+                                {job.job_title}
+                            </span>
+                            <span>{job.remote_or_onsite}</span>
+
+                        </li>)
+                    }
+                </ul> */}
+          
         </div>
     );
 };
