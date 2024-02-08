@@ -13,7 +13,7 @@ const FeaturedJobs = () => {
 
     return (
         <div>
-            <div className="text-center grid grid-cols-2 gap-6">
+            <div className="text-center">
                 <h2 className="text-5xl text-center">Featured Jobs: {jobs.length}</h2>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis, facilis.</p>
             </div>
@@ -22,7 +22,7 @@ const FeaturedJobs = () => {
                     jobs.slice(0, dataLength).map(job => <Job key={job.id} job={job}></Job>)
                 }
             </div>
-            <div className={dataLength === jobs.length && "hidden"}> <button  onClick={() => setDataLength(jobs.length)} className="btn btn-primary w-auto mt-2 my-3">Show All Jobs</button></div>
+            <div className={dataLength === jobs.length && "hidden"}> <button  onClick={() => setDataLength(jobs.length)} className="btn btn-primary mt-5 my-5 ">Show All Jobs</button></div>
         </div>
     );
 };
