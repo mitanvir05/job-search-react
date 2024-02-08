@@ -34,12 +34,12 @@ const JobDetails = () => {
                         <p>{job.experiences}</p>
                     </div>
                 </div>
-                <div className="border">
+                <div className="border ml-4">
                     <div className="mt-2 mx-2 my-1">
                     <p>Salary : {job.salary}</p>
                     <p>Job Title : {job.job_title}</p>
                     <div>
-                        <p className="text-2xl font-bold">Contact Information :</p>
+                        <p className="text-xl font-bold">Contact Information :</p>
                         <p>Phone :{job.contact_information.phone}</p>
                         <p>Email :{job.contact_information.email}</p>
                         <p>Address:{job.contact_information.address}</p>

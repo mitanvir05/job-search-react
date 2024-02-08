@@ -13,7 +13,7 @@ const FeaturedJobs = () => {
 
     return (
         <div>
-            <div className="text-center">
+            <div className="text-center grid grid-cols-2 gap-6">
                 <h2 className="text-5xl text-center">Featured Jobs: {jobs.length}</h2>
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perferendis, facilis.</p>
             </div>
